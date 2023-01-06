@@ -41,7 +41,7 @@ function invert(array) {
   return array.map(num => num * (-1));
 }
 
-//new AddLength
+//new AddLength [8 kyu]
 //"you will win" -->["you 3", "will 4", "win 3"]
 function addLength(str) {
   let newArrayFromStr = str.split(' ').map(word => `${word} ${word.length}`);;
@@ -50,3 +50,48 @@ function addLength(str) {
 }
 
 console.log(addLength('apple ban')) 
+
+//new [7 kyu]
+function smaller(nums) {
+  let finalArr = []
+  for (let i = 0; i < nums.length-1; i++) {
+    let count = 0;
+    for (let j = i+1; j < nums.length; j++) {
+      if (nums[i] > nums[j]) {
+        count++
+      }
+    }
+    finalArr.push(count)
+  }
+  finalArr.push(0);
+  return finalArr;
+}
+
+//эта же задача [7 kyu], но на методах массивов map, slice, filter
+function smaller(nums) {
+return nums.map((num, i) => nums.slice(i+1).filter(secondNum => num > secondNum).length)
+}
+
+console.log(smaller([5, 4, 3, 2, 1]));
+
+
+//[7 kyu] Flatten
+let flatten = function (array){
+  let newArray = []
+  for (let item of array) {
+    if (typeof item === "number" ||  typeof item === "string") {
+      newArray.push(item);
+    } else {
+      for (let subItem of item) {
+        newArray.push(subItem);
+      }
+    }
+  }
+  return newArray
+}
+
+//[7 kyu] Flatten
+
+let flatten1 = function (array){
+  return [].concat(...array)
+}
