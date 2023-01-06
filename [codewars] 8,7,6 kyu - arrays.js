@@ -1,4 +1,4 @@
-//8 kyu Filter out the geese
+//8 kyu Filter out the geese [array]
 // return an array containing all of the strings in the input array except those that match strings in geese
 
 function gooseFilter (birds) {
@@ -8,7 +8,7 @@ function gooseFilter (birds) {
   };
   gooseFilter(["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"])
 
-//new 
+//new 7kyu [array]
 //You solution should return an array [smallest, minimumAbsent, largest]
 // The minimumAbsent is the smallest number between the largest and the smallest number that is not in the array.
 
@@ -27,3 +27,26 @@ function minMinMax(array) {
 }
 
 console.log(minMinMax([-23, -22, 24]));
+
+//new 7 kyu (filter method) [array]
+//filter 4 letters names in array
+
+function friend(friends){
+  return friends.filter(friend => friend.length == 4)
+}
+
+//new 8 kyu [array]
+// Each positive becomes negatives, and the negatives become positives.
+function invert(array) {
+  return array.map(num => num * (-1));
+}
+
+//new AddLength
+//"you will win" -->["you 3", "will 4", "win 3"]
+function addLength(str) {
+  let newArrayFromStr = str.split(' ').map(word => `${word} ${word.length}`);;
+
+  return newArrayFromStr;
+}
+
+console.log(addLength('apple ban')) 
