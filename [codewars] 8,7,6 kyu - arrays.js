@@ -95,3 +95,48 @@ let flatten = function (array){
 let flatten1 = function (array){
   return [].concat(...array)
 }
+
+//[7kyu] game: who win?
+
+function hasSurvived(attackers, defenders){
+  if (attackers.length != defenders.length) {
+    let attackDamage = attackers.reduce((sum, current) => sum + current, 0);
+    let defendersDamage = defenders.reduce((sum, current) => sum + current, 0);
+
+    if (attackDamage > defendersDamage) {
+      return false
+    } 
+    if (attackDamage < defendersDamage) {
+      return true
+    } 
+    if (attackDamage == defendersDamage) {
+      return true
+    } 
+  } 
+  
+  if (attackers.length == defenders.length) {
+    let attackersNum = attackers.filter((num, index) => num > defenders[index]).length;
+    let defendersNum = defenders.filter((num, index) => num > attackers[index]).length;
+    if (attackersNum > defendersNum) {
+      return false
+    } 
+    if (defendersNum > attackersNum) {
+      return true
+    } 
+    if (defendersNum == attackersNum) {
+      let attackDamage = attackers.reduce((sum, current) => sum + current, 0);
+      let defendersDamage = defenders.reduce((sum, current) => sum + current, 0);
+      if (attackDamage > defendersDamage) {
+        return false
+      } 
+      if (attackDamage < defendersDamage) {
+        return true
+      } 
+      if (attackDamage == defendersDamage) {
+        return true
+      } 
+    }
+  } 
+}
+
+//
