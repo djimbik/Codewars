@@ -217,3 +217,161 @@ function arrayPlusArray(arr1, arr2) {
 function grow(x){
     return x.reduce((sum, num) => sum * num, 1)
 }
+
+//29 task
+//[7 kyu]
+// Descending Order/ Дано число, надо расставить цифры этого числа по убыванию
+function descendingOrder(num){
+    return Number(num.toString().split('').sort((a, b) => b - a).join(''));
+}
+
+//30 task
+//[7 kyu]
+// Mumbling accum("abcd") -> "A-Bb-Ccc-Dddd" / accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+function accum(str) {
+    let finalArr = [];
+	let arr = str.split('');
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].toUpperCase();
+        let finalLetter = arr[i];
+        
+        for (let j = 0; j < i; j++) {
+            finalLetter += arr[i].toLowerCase();
+        }
+        finalArr.push(finalLetter)
+    }
+
+    return finalArr.join('-')
+}
+
+//30 task
+//[7 kyu]
+// Mumbling accum("abcd") -> "A-Bb-Ccc-Dddd" / accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy" - теперь знаю про метод repeat();
+function accum(str) {
+	return str.split('').map((letter, index) => (letter.toUpperCase() + letter.toLowerCase().repeat(index)) ).join('-')
+}
+
+//31 task
+//[7 kyu]
+// Get the Middle Character
+
+function getMiddle(str) {
+  return str.length % 2 == 0 ? str.slice(str.length / 2 - 1, str.length / 2 + 1) : str.slice(Math.floor(str.length / 2), Math.floor(str.length / 2) + 1)
+}
+
+//32 task
+//[7 kyu]
+// Isograms "Dermatoglyphics" = true // "moose" = false
+function isIsogram(str){
+    let arr = str.toLowerCase().split('')
+    let unicArr = [];
+   
+    arr.forEach(element => {
+        if (!unicArr.includes(element)) {
+            unicArr.push(element)
+        }
+    });
+    
+    return arr.length == unicArr.length
+}
+
+//33 task
+//[7 kyu]
+// List Filtering, just numbers
+
+function filter_list(list) {
+    return list.filter(item => typeof item == "number")
+}
+
+//34 task
+//[7 kyu]
+// Exes and Ohs (дают строку, должны сравнить количество "о" и количество 'x' в строке)
+function XO(str) {
+   let arr = str.toLowerCase().split('')
+
+   let countX = arr.filter(item => item == 'x');
+   let countO = arr.filter(item => item == 'o');
+
+   return countX.length == countO.length
+}
+
+//35 task
+//[7 kyu]
+// Simple, given a string of words, return the length of the shortest word(s).
+function findShort(string) {
+    let arrLengths = []
+    string.split(' ').forEach(element => {
+        arrLengths.push(element.length)
+    });
+
+    return Math.min(...arrLengths)
+}
+
+//еще можно эту 35 задачу решить через map
+function findShort(string) {
+   return Math.min(...string.split(' ').map(item => item.length))
+}
+
+//36 task
+//[7 kyu]
+// Beginner Series #3 Sum of Numbers
+function getSum( start,stop ) {
+    const range = (start, stop, step) =>
+    Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
+
+    let min = Math.min(a, b);
+    let max = Math.max(a, b);
+
+    return range(min, max, 1).reduce((sum, num) => sum + num, 0)
+}
+
+
+//37 task
+//[7 kyu]
+// Sum of two lowest positive integers
+function sumTwoSmallestNumbers(numbers) {  
+    let newArr = numbers.sort((a, b) => a - b)
+    return newArr[0] + newArr[1]
+}
+
+//38 task
+//[8 kyu]
+// Lario and Muigi Pipe Problem
+function pipeFix(numbers){
+    const range = (start, stop, step) =>
+    Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
+
+    let min = Math.min(...numbers);
+    let max = Math.max(...numbers);
+
+    return range(min, max, 1)
+}
+
+//39 task
+//[8 kyu]
+// Welcome!
+
+function greet(language) {
+  
+	switch(language){
+    case "english": return "Welcome";
+    case "czech": return "Vitejte";
+    case "danish": return "Velkomst";
+    case "dutch": return "Welkom";
+    case "estonian": return "Tere tulemast";
+    case "finnish": return "Tervetuloa";
+    case "flemish": return "Welgekomen";
+    case "french": return "Bienvenue";
+    case "german": return "Willkommen";
+    case "irish": return "Failte";
+    case "italian": return "Benvenuto";
+    case "latvian": return "Gaidits";
+    case "lithuanian": return "Laukiamas";
+    case "polish": return "Witamy";
+    case "spanish": return "Bienvenido";
+    case "swedish": return "Valkommen";
+    case "welsh": return "Croeso";
+    default: return "Welcome";
+    }
+  
+}
