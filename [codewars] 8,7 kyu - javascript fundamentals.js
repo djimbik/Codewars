@@ -352,7 +352,6 @@ function pipeFix(numbers){
 // Welcome!
 
 function greet(language) {
-  
 	switch(language){
     case "english": return "Welcome";
     case "czech": return "Vitejte";
@@ -373,5 +372,63 @@ function greet(language) {
     case "welsh": return "Croeso";
     default: return "Welcome";
     }
-  
+}
+
+//40 task
+//[8 kyu]
+// Keep Hydrated! Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling. 
+// time = 3 ----> litres = 1 / time = 6.7---> litres = 3
+function litres(time) {
+    return Math.floor(time / 2);
+}
+
+//41 task
+//[8 kyu]
+// A Needle in the Haystack
+function findNeedle(haystack) {
+    return `found the needle at position ${haystack.findIndex((item) => item == 'needle')}`  
+}
+
+//42 task
+//[8 kyu]
+// Invert values
+function invert(array) {
+    return array.map(num => -num);
+}
+
+//43 task
+//[8 kyu]
+// Invert values
+function fakeBin(x){
+    return x.split('').map(item => item < 5 ? item = 0 : item = 1).join('')
+}
+
+//44 task
+//[8 kyu]
+// Convert a Boolean to a String
+function booleanToString(b){
+    return b.toString()
+}
+
+//45 task
+//[8 kyu]
+// Convert a Boolean to a String
+function lovefunc(flower1, flower2){
+    return (flower1 + flower2) % 2 != 0
+}
+
+//46 task
+//[8 kyu]
+// Sum without highest and lowest number
+function sumArray(array) {
+    if (array == null || array.length < 3) {
+        return 0
+    } else {
+        sum = 0;
+        array.sort((a, b) => a - b);
+        for (let i = 1; i < array.length - 1; i++) {
+            sum += array[i];
+        }
+        return sum
+    }
 }
