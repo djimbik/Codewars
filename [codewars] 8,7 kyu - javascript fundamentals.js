@@ -398,7 +398,7 @@ function invert(array) {
 
 //43 task
 //[8 kyu]
-// Invert values
+// Fake Binary
 function fakeBin(x){
     return x.split('').map(item => item < 5 ? item = 0 : item = 1).join('')
 }
@@ -412,7 +412,7 @@ function booleanToString(b){
 
 //45 task
 //[8 kyu]
-// Convert a Boolean to a String
+// Opposites Attract
 function lovefunc(flower1, flower2){
     return (flower1 + flower2) % 2 != 0
 }
@@ -431,4 +431,64 @@ function sumArray(array) {
         }
         return sum
     }
+}
+
+//47 task
+//[8 kyu]
+// DNA to RNA Conversion
+function DNAtoRNA(dna) {
+    return dna.split('').map(item => item.replace('T', 'U')).join('')
+}
+
+//48 task
+//[8 kyu]
+// How good are you really?
+function betterThanAverage(classPoints, yourPoints) {
+    return yourPoints > classPoints.reduce((sum, num) => sum + num, 0) / classPoints.length
+}
+
+//49 task
+//[8 kyu]
+// Well of Ideas - Easy Version
+function well(x){
+    if (x.filter(item => item == 'good').length == 0) {
+      return 'Fail!'
+    }
+    if (x.filter(item => item == 'good').length <= 2) {
+      return 'Publish!'
+    }
+    if (x.filter(item => item == 'good').length > 2) {
+      return 'I smell a series!'
+    }
+   }
+
+//50 task
+//[8 kyu]
+// altERnaTIng cAsE <=> ALTerNAtiNG CaSe
+String.prototype.toAlternatingCase = function () {
+    return this.split('').map(item => item !== item.toLowerCase() ? item.toLowerCase() : item.toUpperCase()).join('');
+}
+
+//51 task
+//[8 kyu]
+// Total amount of points
+
+function points(games) {
+    let scores = 0;
+    games.map(item => {
+        if (item.split(':')[0] > item.split(':')[1]) {
+            scores += 3 
+        } 
+        if (item.split(':')[0] == item.split(':')[1]) {
+            scores += 1 
+        } 
+    })
+    return scores;
+}
+
+//51 task
+//[7 kyu]
+// Total amount of points
+function alienLanguage(str){
+    return str.split(' ').map(item => item.slice(0, item.length - 1).toUpperCase() + item.slice(-1).toLowerCase()).join(' ') 
 }
