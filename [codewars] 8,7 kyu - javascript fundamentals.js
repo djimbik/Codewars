@@ -492,3 +492,36 @@ function points(games) {
 function alienLanguage(str){
     return str.split(' ').map(item => item.slice(0, item.length - 1).toUpperCase() + item.slice(-1).toLowerCase()).join(' ') 
 }
+
+//52 task
+//[7 kyu]
+// Arrow function,spread operator and deconstruction
+function shuffleIt(arr, ...exchanges){
+    exchanges.forEach(([i, j]) => [arr[i], arr[j]] = [arr[j], arr[i]]);
+    return arr;
+}
+
+let shuffleIt=(arr,...ex)=>{
+    for ([a,b] of ex) [arr[a],arr[b]]=[arr[b],arr[a]];
+    return arr;
+}
+
+//53 task
+//[7 kyu]
+// methods of arrayObject---push(), pop(), shift() and unshift()
+
+function infiniteLoop(arr,d,n){
+    for (let i = 1; i <= n; i++){
+    if (d === "left"){
+      arr[2].push(arr[0].shift());
+      arr[1].push(arr[2].shift());
+      arr[0].push(arr[1].shift());
+    }
+    if (d === "right"){
+      arr[0].unshift(arr[2].pop());
+      arr[1].unshift(arr[0].pop());
+      arr[2].unshift(arr[1].pop());
+    }
+    }
+    return arr;
+}
