@@ -92,3 +92,79 @@ function solve(arr){
    return arr.filter((num, index) => currentArr[index] == 0)
   };
 console.log(solve([16,17,14,3,14,5,2]))
+
+// решение еще проще может быть: 
+function solve(arr){
+    return arr.filter((e,i)=> arr.slice(i+1).every(x => x < e));
+  };
+  
+//6 task
+//[7 kyu]
+// Inertial Array
+
+function isInertial(array) {
+  let finalArr = []
+  if (array.filter(num => num % 2 != 0).length) {
+    finalArr.push(true)
+  }
+  if (Math.max(...array) % 2 == 0) {
+      finalArr.push(true)
+  }
+
+    let newArr = array.sort( (a, b) => b - a)
+    newArr.shift();
+    let newArrOdd = newArr.filter(num => num % 2 != 0)
+    let newArrEven = newArr.filter(num => num % 2 == 0)
+
+    if( Math.min(...newArrOdd) > Math.max(...newArrEven)) {
+      finalArr.push(true)
+    }
+
+   if (finalArr.length == 3) {
+      return true
+   } else {
+    return false
+   }
+  } 
+
+isInertial([11, 4, 20, 9, 2, 8])
+
+// та же задача
+
+let isInertial = arr => {
+  var max = Math.max(...arr);
+  var odds = arr.filter(e => e % 2 != 0);
+  var evens = arr.filter(e => e % 2 == 0 && e != max);
+  return arr.some(e => e % 2 != 0) && max % 2 == 0 && odds.every(o => evens.every(e => e <= o));
+}
+
+//7 task
+//[7 kyu]
+// Tally it up
+
+let scoreToTally = function(score){
+  let totalScores = {
+    1: 'a',
+    2: 'b', 
+    3: 'c',
+    4: 'd',
+    5: 'e'
+  }
+  let str = '';
+  while (score > 10) {
+    str += totalScores[5] + ' ' + '<br>';
+    score = score - 5;
+  } 
+  if (score < 5) {
+    str += totalScores[score]
+  } else if (score == 5) {
+    str += totalScores[score] + ' ' + '<br>'
+  } else if (score - 5 < 5) {
+    str += totalScores[5] + ' ' + '<br>' + totalScores[score - 5]
+  } else if (score - 5 == 5) {
+    str += totalScores[5] + ' ' + '<br>' + totalScores[score - 5] + ' ' + '<br>'
+  } 
+  return str
+}
+
+scoreToTally(11)
