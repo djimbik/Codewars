@@ -167,4 +167,27 @@ let scoreToTally = function(score){
   return str
 }
 
-scoreToTally(11)
+//7 task
+//[7 kyu]
+// Initialize my name // Alice Betty Catherine Davis -> Alice B. C. Davis
+
+function initializeNames(name){
+  return name.replace(/ (\w)\w*(?= )/g, ' $1.') // тут пробел -> первая скобка - это как раз первая буква второго слова, потом слово, потом опять пробел - изи
+}
+
+//еще 
+name.replace(/(?<=\s)(\w)\w+(?=\s)/g, `$1.`);
+
+
+//7 task
+//[7 kyu]
+// Credit Card Mask // "4556364607935616" --> "############5616"
+function maskify(cc) {
+  return cc.length <= 4 ? cc :  cc.replace(cc.slice(0,-4), '#'.repeat(cc.slice(0,-4).length))
+}
+
+//еще с помощью regexp
+
+function maskify(cc) {
+  return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
+}
