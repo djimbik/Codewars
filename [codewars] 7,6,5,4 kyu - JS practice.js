@@ -167,7 +167,7 @@ let scoreToTally = function(score){
   return str
 }
 
-//7 task
+//8 task
 //[7 kyu]
 // Initialize my name // Alice Betty Catherine Davis -> Alice B. C. Davis
 
@@ -179,7 +179,7 @@ function initializeNames(name){
 name.replace(/(?<=\s)(\w)\w+(?=\s)/g, `$1.`);
 
 
-//7 task
+//9 task
 //[7 kyu]
 // Credit Card Mask // "4556364607935616" --> "############5616"
 function maskify(cc) {
@@ -190,4 +190,41 @@ function maskify(cc) {
 
 function maskify(cc) {
   return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
+}
+
+//еще
+
+function maskify(cc) {
+  return cc.replace(/.(?=....)/g, '#');
+}
+
+
+//10 task
+//[7 kyu]
+// Find the nth Digit of a Number // 5673, 4 --> 5 (from right to left)
+
+var findDigit = function(num, nth){
+  let newNum = num.toString().split('').reverse();
+
+  if (nth > newNum.length) {
+    return 0
+  }
+  if (nth <= 0) {
+    return -1
+  }
+
+  return Number(newNum[nth-1]) ? Number(newNum[nth-1]) : 0
+}
+
+findDigit(5673, 4)
+
+//11 task
+//[7 kyu]
+// Highest and Lowest highAndLow("1 2 3 4 5");  // return "5 1"
+function highAndLow(numbers){
+  let arr = numbers.split(' ');
+  let max = Math.max(...arr);
+  let min = Math.min(...arr);
+
+  return `${max} ${min}`
 }
