@@ -228,3 +228,22 @@ function highAndLow(numbers){
 
   return `${max} ${min}`
 }
+
+//12 task
+//[7 kyu]
+// Complementary DNA
+
+function DNAStrand(dna){
+  const rep = {
+    A: `T`,
+    T: `A`,
+    G: `C`,
+    C: `G`
+  };
+  
+  return dna.replace(/(A|T|G|C)/g, (str, $1) => rep[$1])
+}
+
+//13 task
+//[7 kyu]
+// Digit*Digit
