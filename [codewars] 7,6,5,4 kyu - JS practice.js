@@ -247,3 +247,27 @@ function DNAStrand(dna){
 //13 task
 //[7 kyu]
 // Digit*Digit
+function squareDigits(num){
+  return Number(num.toString().split('').map((item) => Number(item)**2).join(''));
+}
+
+//14 task
+//[7 kyu]
+// Odd-Even String Sort // assert.strictEqual(sortMyString("CodeWars"), "CdWr oeas");
+function sortMyString(S) {
+  let arr =  S.split('')
+  let evenPart = arr.filter((letter, index) => index % 2 == 0).join('')
+  let oddPart = arr.filter((letter, index) => index % 2 != 0).join('')
+  return `${evenPart} ${oddPart}`;
+}
+
+//15 task
+//[7 kyu]
+// Regex validate PIN code
+function validatePIN (pin) {
+  return /(?<!(.|\n))(\d{6}|\d{4})(?!(.|\n))/.test(pin)
+}
+//оптимизируем
+function validatePIN(pin) {
+  return /^(\d{4}|\d{6})$/.test(pin)
+}
