@@ -271,3 +271,32 @@ function validatePIN (pin) {
 function validatePIN(pin) {
   return /^(\d{4}|\d{6})$/.test(pin)
 }
+
+//16 task
+//[7 kyu]
+// Categorize New Member
+
+function openOrSenior(data){
+  let newArr = [];
+  data.forEach(items => items[0] >= 55 && items[1] > 7 ? newArr.push('Senior') : newArr.push('Open'))
+  return newArr
+}
+// Destructuring: [age, handicap] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+// Arrow Functions: () => {} https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+function openOrSenior(data){
+  return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open');
+}
+
+//17 task
+//[7 kyu]
+// Hide password from jdbc url
+
+function hidePasswordFromConnection(urlString){
+  return urlString.replace(/(?<=password=)(.+)(?=\&user)|(?<=password=)(.+)/, (str) => str.split('').map(item => item = '*').join(''))
+}
+
+//рефакторим
+function hidePasswordFromConnection(urlString){
+  return urlString.replace(/\bpassword=([^&]*)/, (m,p) => 'password=' + '*'.repeat(p.length))
+}
