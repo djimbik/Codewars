@@ -300,3 +300,39 @@ function hidePasswordFromConnection(urlString){
 function hidePasswordFromConnection(urlString){
   return urlString.replace(/\bpassword=([^&]*)/, (m,p) => 'password=' + '*'.repeat(p.length))
 }
+
+//18 task
+//[7 kyu]
+// Basic JS - Calculating averages
+var Calculator = {
+  average: function(...nums) {
+    return nums.length == 0 ? 0 : num.reduce((sum, current) => sum + current, 0)/nums.length
+  }
+};
+
+// еще интересный вариант
+var Calculator = {
+  average: function() {
+    
+   return Array.prototype.slice.call(arguments).reduce(function(prev, next) {
+     return prev + next;
+   }, 0) / (arguments.length || 1);
+  }
+};
+
+//19 task
+//[7 kyu]
+// Largest 5 digit number in a series
+
+function solution(digits){
+  let finalArr = [];
+  let arrDigits = digits.split('')
+
+  for (let i = 0; i < arrDigits.length; i++) {
+   let arrNums = arrDigits.slice(i, i+5)
+   let finalNum = arrNums.join('')
+   finalArr.push(finalNum)
+  }
+  return Math.max(...finalArr)
+}
+
