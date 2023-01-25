@@ -336,3 +336,22 @@ function solution(digits){
   return Math.max(...finalArr)
 }
 
+//20 task
+//[7 kyu]
+// String ends with?
+function solution(str, ending){
+  return str.endsWith(ending)
+}
+
+//21 task
+//[7 kyu]
+// Don't give me five!
+function dontGiveMeFive(start, end) {
+  let arr = [];
+  for (let i = start; i <= end; i ++) {
+    if  (i.toString().includes('5') == false) {
+      arr.push(i)
+    } 
+  }
+  return arr.length ;
+}
