@@ -355,3 +355,39 @@ function dontGiveMeFive(start, end) {
   }
   return arr.length ;
 }
+
+//22 task
+//[7 kyu]
+// Find the stray number
+
+function stray(numbers) {
+  console.log(numbers)
+  let uniqNum = numbers[0];
+  console.log(uniqNum)
+   if (uniqNum != numbers[1]) {
+     uniqNum = numbers[1];
+     console.log(numbers[1])
+     if (uniqNum == numbers[2]) {
+       uniqNum = numbers[0];
+     }
+   } else if (uniqNum == numbers[1] && uniqNum == numbers[2]) {
+    uniqNum = numbers.find(item => item != numbers[0])
+   } else {
+    uniqNum = numbers[2]
+   }
+
+  return uniqNum;
+}
+stray([2, 1, 1])
+
+//рефакторим
+
+const stray = numbers => numbers.find(num => numbers.indexOf(num) === numbers.lastIndexOf(num));
+
+//23 task
+//[7 kyu]
+// Find the stray number
+
+var number = function(array) {
+  return array.map((item, index) => `${index + 1}: ${item}`);
+}
