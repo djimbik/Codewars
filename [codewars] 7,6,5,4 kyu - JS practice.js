@@ -391,3 +391,34 @@ const stray = numbers => numbers.find(num => numbers.indexOf(num) === numbers.la
 var number = function(array) {
   return array.map((item, index) => `${index + 1}: ${item}`);
 }
+
+//24 task
+//[6 kyu]
+// Sentence Calculator
+
+function lettersToNumbers(s) {
+  let alfabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+  'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+  's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+   
+   let arrOfNums = s.split('').map(letter => {
+     if (/^[A-Z]*$/.test(letter)) {
+       return (alfabet.indexOf(letter.toLowerCase()) + 1) * 2
+     } else if (/^[0-9]*$/.test(letter)) {
+       return Number(letter)
+     } else {
+      return (alfabet.indexOf(letter) + 1)
+    }
+   })
+
+  return arrOfNums.reduce((sum, num) => sum + num, 0)
+}
+
+// решение регуляра, которое мне понравилось 
+function lettersToNumbers(s) {
+  let key = c =>
+    /[a-z]/.test(c) ? c.charCodeAt() - 96 :
+    /[A-Z]/.test(c) ? (c.charCodeAt() - 64) * 2 :
+    /\d/.test(c) ? +c : 0
+  return [...s].reduce((s, v) => s + key(v), 0)
+}
