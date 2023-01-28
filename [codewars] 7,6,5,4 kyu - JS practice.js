@@ -422,3 +422,40 @@ function lettersToNumbers(s) {
     /\d/.test(c) ? +c : 0
   return [...s].reduce((s, v) => s + key(v), 0)
 }
+
+//25 task
+//[6 kyu]
+// Validate Credit Card Number Luhn algorithm
+
+function validate(n){
+  let arrNums = n.toString().split('').reverse();
+  for (let i = 1; i < arrNums.length; i += 2) {
+    if (arrNums[i] * 2 > 9) {
+      arrNums[i] = arrNums[i] * 2 - 9;
+    } else {
+      arrNums[i] *= 2;
+    }
+  }
+  return arrNums.reduce((sum, num) => sum + Number(num), 0) % 10 == 0 ? true : false 
+}
+
+// элегантное решение от регуляров
+function validate(n){
+  var sum = 0;
+
+  while (n > 0) {
+    var a = n % 10;
+    n = Math.floor(n / 10);
+    
+    var b = (n % 10) * 2;
+    n = Math.floor(n / 10);
+    
+    if (b > 9) {
+      b -= 9;
+    }
+    
+    sum += a + b;
+  }
+  
+  return sum % 10 == 0;
+}
