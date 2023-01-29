@@ -459,3 +459,22 @@ function validate(n){
   
   return sum % 10 == 0;
 }
+
+//26 task
+//[6 kyu]
+// Persistent Bugger.
+
+function persistence(num) {
+  let times = 0;
+  
+  num = num.toString();
+  
+  while (num.length > 1) {
+    times++;
+    num = num.split('').map(Number).reduce((a, b) => a * b).toString();
+  }
+  
+  return times;
+}
+
+persistence(999)
