@@ -478,3 +478,26 @@ function persistence(num) {
 }
 
 persistence(999)
+
+//27 task
+//[6 kyu]
+// Equal Sides Of An Array
+
+function findEvenIndex(arr)
+{
+  let finalArr = [];
+  if (arr.slice(0, arr.length - 1).reduce((sum, num) => sum + num, 0) == 0) {
+    finalArr.push(arr.length - 1);
+  }
+  
+  if (arr.slice(1).reduce((sum, num) => sum + num, 0) == 0) {
+    finalArr.push(0);
+  }
+
+  for (let i = 0; i < arr.length - 1 ; i++) {
+    if (arr.slice(0, i).reduce((sum, num) => sum + num, 0) == arr.slice(i+1).reduce((sum, num) => sum + num)) {
+       finalArr.push(i)
+    }
+  }
+  return finalArr.length == 0 ? -1 : Math.min(...finalArr);
+}
