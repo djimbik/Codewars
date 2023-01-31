@@ -501,3 +501,24 @@ function findEvenIndex(arr)
   }
   return finalArr.length == 0 ? -1 : Math.min(...finalArr);
 }
+
+
+//28 task
+//[6 kyu]
+// Sum of Digits / Digital Root
+
+function digitalRoot(n) {
+  let arr = n.toString().split('');
+  let nextNum = arr.reduce((sum, num) => sum + Number(num), 0).toString().split('');
+
+  return nextNum.length > 1 ? digitalRoot(Number(nextNum.join(''))) : Number(nextNum.join(''))
+}
+
+// оптимизировал
+
+function digital_root(n) {
+  if (n < 10) return n;
+  
+  return digital_root(
+    n.toString().split('').reduce((acc, d) =>  acc + +d, 0));
+}
