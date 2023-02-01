@@ -522,3 +522,12 @@ function digital_root(n) {
   return digital_root(
     n.toString().split('').reduce((acc, d) =>  acc + +d, 0));
 }
+
+//29 task
+//[6 kyu]
+// Playing with digits
+
+function digPow(n, p) {
+  var x = String(n).split("").reduce((s, d, i) => s + Math.pow(d, p + i), 0)
+  return x % n ? -1 : x / n
+}
