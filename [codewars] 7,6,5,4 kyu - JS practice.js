@@ -579,3 +579,31 @@ function stat(strg) {
 }
 
 stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17")
+
+
+//31 task
+//[6 kyu]
+// Your order, please
+function order(words){
+  let arr = words.split(' ')
+  
+  let finalArr = []
+  
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j ++) {
+      if (arr[j].includes(i+1)) {
+        finalArr.push(arr[j])
+      }
+    }
+  }
+  return finalArr.join(' ')
+}
+
+// через регулярки и сорт
+
+function order(words){
+
+  return words.split(' ').sort(function(a, b){
+      return a.match(/\d/) - b.match(/\d/);
+    }).join(' ');
+}  
