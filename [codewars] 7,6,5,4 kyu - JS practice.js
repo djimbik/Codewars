@@ -531,3 +531,51 @@ function digPow(n, p) {
   var x = String(n).split("").reduce((s, d, i) => s + Math.pow(d, p + i), 0)
   return x % n ? -1 : x / n
 }
+
+//30 task
+//[6 kyu]
+// Statistics for an Athletic Association
+
+function stat(strg) {
+  let arr = strg.split(', ')
+
+  let newArr = arr.map(time => {
+    let parts = time.split("|");
+    return (parts[0] * 3600) +
+           (parts[1] * 60) +
+           (+parts[2]);
+  })
+
+  newArr.sort((a, b) => a - b)
+
+  let range = newArr[newArr.length - 1] - newArr[0];
+
+  let median;
+  if (newArr.length % 2 == 0) {
+    median = (newArr[Math.floor(newArr.length / 2)] + newArr[Math.floor(newArr.length / 2) - 1]) / 2
+  }  else {
+    median = newArr[Math.floor(newArr.length / 2)]
+  }
+  median = Math.floor(median)
+
+  let average = Math.floor(newArr.reduce((sum, item) => sum + item, 0) / newArr.length)
+
+  function pad(num) {
+    if(num < 10) {
+      return "0" + num;
+    } else {
+      return "" + num;
+    }
+  }
+  
+  function formatTime(seconds) {
+    return [pad(Math.floor(seconds/3600)),
+            pad(Math.floor(seconds/60)%60),
+            pad(seconds%60),
+            ].join("|");
+  }
+
+  return `Range: ${formatTime(range)} Average: ${formatTime(average)} Median: ${formatTime(median)}`
+}
+
+stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17")
