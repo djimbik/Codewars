@@ -607,3 +607,36 @@ function order(words){
       return a.match(/\d/) - b.match(/\d/);
     }).join(' ');
 }  
+
+//32 task
+//[6 kyu]
+// Duplicate Encoder
+
+function duplicateEncode(word){
+  let arr = word.toLowerCase().split('')
+  
+  let finalArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let m = 0;
+    for (let j = 0; j < arr.length; j++ ) {
+        if (arr[i] == arr[j]) {
+          m++;
+        }  
+    }
+    m > 1 ? finalArr.push(')') : finalArr.push('(')
+  }
+  return finalArr.join('')
+}
+
+//крутое решение
+
+function duplicateEncode(word){
+  return word
+    .toLowerCase()
+    .split('')
+    .map( function (a, i, w) {
+      return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'
+    })
+    .join('');
+}
