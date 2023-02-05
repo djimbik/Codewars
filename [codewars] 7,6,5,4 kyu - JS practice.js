@@ -640,3 +640,14 @@ function duplicateEncode(word){
     })
     .join('');
 }
+
+//33 task
+//[6 kyu]
+// Does my number look big in this?
+
+function narcissistic(value) {
+  let degree = value.toString().split('').length;
+  return value.toString().split('').reduce((sum, num) => sum + Number(num)**degree, 0) == value
+}
+
+narcissistic(7)
