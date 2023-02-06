@@ -650,4 +650,31 @@ function narcissistic(value) {
   return value.toString().split('').reduce((sum, num) => sum + Number(num)**degree, 0) == value
 }
 
-narcissistic(7)
+//34 task
+//[6 kyu]
+// Take a Ten Minutes Walk
+
+function isValidWalk(walk) {
+  //insert brilliant code here
+ return walk.length == 10 &&
+  walk.filter(letter => letter == 'e').length == walk.filter(letter => letter == 'w').length &&
+  walk.filter(letter => letter == 'n').length == walk.filter(letter => letter == 's').length 
+}
+
+//второе решение
+function isValidWalk(walk) {
+  var dx = 0
+  var dy = 0
+  var dt = walk.length
+  
+  for (var i = 0; i < walk.length; i++) {
+    switch (walk[i]) {
+      case 'n': dy--; break
+      case 's': dy++; break
+      case 'w': dx--; break
+      case 'e': dx++; break
+    }
+  }
+  
+  return dt === 10 && dx === 0 && dy === 0
+}
