@@ -678,3 +678,40 @@ function isValidWalk(walk) {
   
   return dt === 10 && dx === 0 && dy === 0
 }
+
+//35 task
+//[6 kyu]
+// Counting Duplicates Надо посчиатть сколько букв и цифр будут дублями
+
+function duplicateCount(text){
+  let arr = text.toLowerCase()
+  let newSet = new Set([]);
+   let countArr = new Set([]);
+   
+   for (let item of arr) {
+       if(!newSet.has(item)) {
+         newSet.add(item)
+         console.log(newSet)
+       } else {
+         countArr.add(item)
+         console.log(countArr)
+       }
+   }
+   return countArr.size
+ }
+
+ duplicateCount("Indivisibility")
+
+ 
+ // еще одно решение как найти дубликаты - надо логировать, чтобы понять логику
+
+ function duplicateCount(text){
+  return text.toLowerCase().split('').filter(function(val, i, arr){
+    console.log('i ' + i)
+    console.log('indexOF ' + arr.indexOf(val))
+    console.log('indexOF ' + arr.lastIndexOf(val))
+    return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
+  }).length;
+}
+
+duplicateCount("Indivisibility")
