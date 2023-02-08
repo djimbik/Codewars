@@ -715,3 +715,29 @@ function duplicateCount(text){
 }
 
 duplicateCount("Indivisibility")
+
+
+//36 task
+//[6 kyu]
+// Unique In Order https://www.codewars.com/kata/54e6533c92449cc251001667/javascript
+
+var uniqueInOrder=function(iterable){
+  if (typeof iterable === "string") {
+    iterable = iterable.split('')
+  } 
+  return iterable.filter((item, index) => item !== iterable[index+1])
+}
+
+//еще одно решение с доп. массивом
+function uniqueInOrder(it) {
+  var result = []
+  var last
+  
+  for (var i = 0; i < it.length; i++) {
+    if (it[i] !== last) {
+      result.push(last = it[i])
+    }
+  }
+  
+  return result
+}
