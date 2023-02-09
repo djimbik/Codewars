@@ -741,3 +741,20 @@ function uniqueInOrder(it) {
   
   return result
 }
+
+
+//37 task
+//[6 kyu]
+// Array.diff https://www.codewars.com/kata/523f5d21c841566fde000009/train/javascript
+
+function arrayDiff(a, b) {
+  for (let i= 0; i < b.length; i++) {
+    a = a.filter(item => item != b[i])
+  }
+  return a
+}
+
+//еще одно решение
+function array_diff(a, b) {
+  return a.filter(e => !b.includes(e));
+}
