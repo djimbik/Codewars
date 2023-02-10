@@ -758,3 +758,25 @@ function arrayDiff(a, b) {
 function array_diff(a, b) {
   return a.filter(e => !b.includes(e));
 }
+
+
+//38 task
+//[6 kyu]
+// Create Phone Number
+
+function createPhoneNumber(numbers){
+  return numbers.join('').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3')
+}
+
+// решение без регулярок
+
+function createPhoneNumber(numbers){
+  var format = "(xxx) xxx-xxxx";
+  
+  for(var i = 0; i < numbers.length; i++)
+  {
+    format = format.replace('x', numbers[i]);
+  }
+  
+  return format;
+}
