@@ -786,42 +786,30 @@ function createPhoneNumber(numbers){
 // Backwards Read Primes
 
 function backwardsPrime(start, stop){
-  let arr = [];
+    let arr = []
 
-  for (let i = 2; i <= stop; i++) {
-    for (let j = i+1; j <= stop; j ++) {
-      if (j % i == 0) {
-        if (!arr.includes(j)) {
-          arr.push(j);
-        }
-      } 
-    }
-  }
-  console.log(arr)
-
-  let ourArr = Array.from({length: stop-start}, (item, index) => index+stop-start);
-  console.log('ourArr', ourArr)
-
-  let finalArr = [];
-
-  for (let i = 0; i < ourArr.length; i++) {
-    let count = 0;
-    console.log('count', count)
-    for (let j = 0; j < arr.length; j++) {
-      if (ourArr[i] == arr[j]) {
-        count++
-        console.log('count', count)
+    nextPrime:
+    for (let i = 2; i <= 10000; i++) {
+      for (let j = 2; j < i; j ++) {
+        if (i % j == 0) {
+          continue nextPrime
+          }
+        } 
+        arr.push(i);
       }
-    }
-    console.log('count', count)
-    if (count == 0) {
-      finalArr.push(ourArr[i])
-    }
-  }
-  let finalArr1 = finalArr.filter(item => item.toString().split('').length >= 2 && isSimple(Number(item.toString().split('').reverse().join(''))) )
-  return finalArr 
+    console.log(arr)
+
+  let ourArr = Array.from({length: stop-start}, (item, index) => index+start);
+
+  let simpleArr = ourArr.filter(item => arr.includes(item));
+
+  let finalArr = simpleArr.filter(item => arr.includes(Number(item.toString().split('').reverse().join(''))))
+
+  return finalArr
 }
 
-backwardsPrime(50, 100)
+backwardsPrime(9900, 10000)
 
-// завтра подумаю как создать отдельбную функцию, которая будет проверять число простое оно или нет!
+// Нашел не плохой алгоритм для мелких цифр, все работает!
+// но тут миллионы пошли, будет рбаотать не оч, нужен другой алгоритм, у Контора на сайте есть ссылки на эти алго, завтро посмотрю
+// добью эту задачу и буду мастером алгоритмов)
