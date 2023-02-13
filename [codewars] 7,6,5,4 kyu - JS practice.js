@@ -784,32 +784,28 @@ function createPhoneNumber(numbers){
 //39 task
 //[6 kyu]
 // Backwards Read Primes
+function backwardsPrime(start, stop) {
+  const isPrime = num => {
+    let newNum = Math.sqrt(num)
+    for (let i = 2; i <= newNum; i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+  };
 
-function backwardsPrime(start, stop){
-    let arr = []
+  const isReversePrime = num => {
+    let reverseNum = +num.toString().split('').reverse().join('');
+    if (num !== reverseNum) return isPrime(reverseNum);
+    else return false;
+  }
 
-    nextPrime:
-    for (let i = 2; i <= 10000; i++) {
-      for (let j = 2; j < i; j ++) {
-        if (i % j == 0) {
-          continue nextPrime
-          }
-        } 
-        arr.push(i);
-      }
-    console.log(arr)
-
-  let ourArr = Array.from({length: stop-start}, (item, index) => index+start);
-
-  let simpleArr = ourArr.filter(item => arr.includes(item));
-
-  let finalArr = simpleArr.filter(item => arr.includes(Number(item.toString().split('').reverse().join(''))))
-
-  return finalArr
+    let result = [];
+    for (let num = start; num <= stop; num++) {
+        if (num % 2 !== 0) {
+            if (isPrime(num) && isReversePrime(num)) result.push(num);
+        }
+    }
+    return result;
 }
 
-backwardsPrime(9900, 10000)
-
-// Нашел не плохой алгоритм для мелких цифр, все работает!
-// но тут миллионы пошли, будет рбаотать не оч, нужен другой алгоритм, у Контора на сайте есть ссылки на эти алго, завтро посмотрю
-// добью эту задачу и буду мастером алгоритмов)
+console.log(backwardsPrime(9900, 10000))
