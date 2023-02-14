@@ -784,28 +784,36 @@ function createPhoneNumber(numbers){
 //39 task
 //[6 kyu]
 // Backwards Read Primes
-function backwardsPrime(start, stop) {
-  const isPrime = num => {
-    let newNum = Math.sqrt(num)
-    for (let i = 2; i <= newNum; i++) {
-        if (num % i === 0) return false;
-    }
-    return true;
-  };
 
-  const isReversePrime = num => {
-    let reverseNum = +num.toString().split('').reverse().join('');
-    if (num !== reverseNum) return isPrime(reverseNum);
-    else return false;
+function isPrime (num) {
+  let newNum = Math.sqrt(num)
+  for (let i = 2; i <= newNum; i++) {
+    if (num % i === 0) {
+      return false
+    }  
   }
+  return true 
+}
 
-    let result = [];
-    for (let num = start; num <= stop; num++) {
-        if (num % 2 !== 0) {
-            if (isPrime(num) && isReversePrime(num)) result.push(num);
-        }
+function isReverseNumPrime (num) {
+  let reverseNum = +num.toString().split('').reverse().join('')
+  if (num != reverseNum) {
+    return isPrime(reverseNum)
+  }
+  return false
+}
+
+function backwardsPrime(start, stop){
+  let arr = []
+
+  for (let i = start; i <= stop; i++) {
+    if (i % 2 !== 0) {
+      if (isPrime(i) && isReverseNumPrime(i)) {
+        arr.push(i)
+       }
     }
-    return result;
+  }
+  return arr
 }
 
 console.log(backwardsPrime(9900, 10000))
