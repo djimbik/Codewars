@@ -817,3 +817,41 @@ function backwardsPrime(start, stop){
 }
 
 console.log(backwardsPrime(9900, 10000))
+
+
+//OOP =======================================================================================================================================
+//40 task
+//[8 kyu]
+// OOP: Object Oriented Piracy https://www.codewars.com/kata/54fe05c4762e2e3047000add/train/javascript
+function Ship(draft,crew) {
+  this.draft = draft;
+  this.crew = crew;
+   
+  this.isWorthIt = function() {
+     return this.draft - this.crew * 1.5 > 20
+   }
+}
+
+//41 task
+//[8 kyu]
+// OOP
+class Labrador extends Dog {
+  constructor(name, age, gender, master) {
+    super(name, age, gender, "Labrador", "Large", master, true)
+  }
+}
+
+//42 task
+//[8 kyu]
+// OOP
+
+class NameMe {
+  constructor(first, last) {
+    this.firstName = first;
+    this.lastName = last;
+  }
+
+  get name() {
+    return this.firstName + ' ' + this.lastName;
+  }
+}
