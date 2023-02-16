@@ -855,3 +855,33 @@ class NameMe {
     return this.firstName + ' ' + this.lastName;
   }
 }
+
+
+
+//43 task
+//[8 kyu]
+// Color Ghost
+// https://www.codewars.com/kata/53f1015fa9fe02cbda00111a/solutions/javascript
+
+class Ghost {
+  getRandomNumberInRange(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+  constructor() {
+    this.rainBow = ["white", "yellow", "purple", "red"];
+    this.color = this.rainBow[this.getRandomNumberInRange(0, this.rainBow.length)]
+  }
+}
+
+//44 task
+//[7 kyu]
+// Help Grinch steal Christmas from JS programmers
+// https://www.codewars.com/kata/63387232198a4c00286aa349/train/javascript
+
+Date.prototype.getDate = function getGrinchDate() {
+  const day = this.getUTCDate();
+   const month = this.getMonth();
+   
+   return month == 11 && day == 25 ? 26 : day
+ };
