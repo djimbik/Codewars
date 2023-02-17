@@ -885,3 +885,35 @@ Date.prototype.getDate = function getGrinchDate() {
    
    return month == 11 && day == 25 ? 26 : day
  };
+
+
+ //45 task
+//[7 kyu]
+// Split The Bill
+// https://www.codewars.com/kata/5641275f07335295f10000d0/train/javascript
+
+function splitTheBill(x) {
+  let sum = 0;
+    let averege = 1;
+    for (let value of Object.values(x)) {
+      console.log(Number(value))
+      sum += Number(value);
+    }
+    averege = sum / Object.values(x).length
+    
+   let finalObj = {
+     
+   }
+   
+   let keys = Object.keys(x);
+    keys.forEach((item,index) => {
+      finalObj[item] = Object.values(x)[index] - averege;
+      if (finalObj[item] != Math.round(finalObj[item])) {
+          finalObj[item] = Number(finalObj[item].toFixed(2))
+      }
+    })
+    
+    return finalObj
+  }
+
+splitTheBill({A: 20, B: 15, C: 10})
