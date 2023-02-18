@@ -917,3 +917,21 @@ function splitTheBill(x) {
   }
 
 splitTheBill({A: 20, B: 15, C: 10})
+
+
+
+ //46 task
+//[7 kyu]
+// Capitalize first letter of a string
+// https://www.codewars.com/kata/56c19316e8b139dff60006da/train/javascript
+
+String.prototype.capitalize = function () {
+  let firstLetter = this.charCodeAt(0)
+  
+  if(97 <= firstLetter &&  firstLetter <= 122) {
+    firstLetter -= 32
+  }
+  
+  return String.fromCharCode(firstLetter) + this.slice(1)
+}
+
