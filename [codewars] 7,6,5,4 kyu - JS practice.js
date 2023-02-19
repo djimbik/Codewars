@@ -935,3 +935,22 @@ String.prototype.capitalize = function () {
   return String.fromCharCode(firstLetter) + this.slice(1)
 }
 
+
+ //47 task
+//[7 kyu]
+// Thinkful - Object Drills: Quarks
+// https://www.codewars.com/kata/5882b052bdeafec15e0000e6/train/javascript
+
+class Quark{
+  static #baryon_number = 1/3;
+  
+  constructor (color, flavor) {
+    this.color = color;
+    this.flavor = flavor;
+    this.baryon_number = Quark.#baryon_number
+  }
+
+  interact(q2) {
+    [this.color, other.color] = [other.color, this.color]
+  }
+}
