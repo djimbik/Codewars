@@ -984,3 +984,17 @@ class Block{
     return 2 * (this.width * this.length + this.width * this.height + this.length * this.height)
   }
 }
+
+//49 task
+//[7 kyu]
+// Refactored Greeting
+// https://www.codewars.com/kata/5121303128ef4b495f000001
+
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  greet(name) {
+    return `Hello ${name}, my name is ${this.name}`;
+  }
+}
