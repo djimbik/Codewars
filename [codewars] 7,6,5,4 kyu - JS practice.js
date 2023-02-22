@@ -998,3 +998,16 @@ class Person {
     return `Hello ${name}, my name is ${this.name}`;
   }
 }
+
+
+//50 task
+//[7 kyu]
+// Make Class
+// https://www.codewars.com/kata/5d774cfde98179002a7cb3c8/train/javascript
+
+function makeClass(...properties) {
+  return function() {
+    properties.forEach((prop, i) => {
+      return this[prop] = arguments[i]
+    })}
+}
