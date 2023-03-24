@@ -138,3 +138,8 @@ function hasSurvived(attackers, defenders){
     }
   } 
 }
+
+//[8kyu] Square(n) Sum
+function squareSum(numbers){
+  return numbers.reduce((sum, currentNumber) => sum + currentNumber ** 2, 0)
+}
